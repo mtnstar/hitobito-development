@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  mongodb:
+    image: mongo:6.0
+    volumes:
+      - mongodb:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+
+  rocketchat:
+    image: registry.rocket.chat/rocketchat/rocket.chat:6.5.3
+    ports:
+      - "4000:3000"
+    environment:
+      - MONGO_OPLOG_URL=mongodb://mongodb:27017/local
+      - MONGO_URL=mongodb://mongodb:27017/rocketchat
+      - ROOT_URL=http://localhost:3000
+      - OVERWRITE_SETTING_Show_Setup_Wizard=completed
+volumes:
+  mongodb:

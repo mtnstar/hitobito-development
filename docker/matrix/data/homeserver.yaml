@@ -1,0 +1,44 @@
+server_name: chat.hitobito.example.com
+report_stats: false
+
+listeners:
+  - port: 8008
+    type: http
+    tls: false
+    resources:
+      - names: [client, federation]
+
+database:
+  name: "sqlite3"
+  args:
+    database: "/data/homeserver.db"
+
+# Registration
+enable_registration: false
+bcrypt_rounds: 12
+allow_guest_access: false
+enable_group_creation: true
+
+# Files
+media_store_path: "/data/media"
+max_upload_size: "50M"
+max_image_pixels: "32M"
+dynamic_thumbnails: false
+
+## List of thumbnail to precalculate when an image is uploaded.
+thumbnail_sizes:
+- width: 32
+  height: 32
+  method: crop
+- width: 96
+  height: 96
+  method: crop
+- width: 320
+  height: 240
+  method: scale
+- width: 640
+  height: 480
+  method: scale
+- width: 800
+  height: 600
+  method: scale

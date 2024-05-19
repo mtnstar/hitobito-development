@@ -1,4 +1,6 @@
 version: '3.4'
+include:
+  - 'docker/matrix/compose.yml'
 services:
   rails: &rails
     build:

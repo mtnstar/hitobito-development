@@ -12,3 +12,9 @@ services:
     volumes:
     - ./media/:/media
     - ./data/:/data
+  matrix-client:
+    image: compuguy/fluffychat:1.20.0
+    ports:
+      - 8009:80
+    profiles:
+      - matrix

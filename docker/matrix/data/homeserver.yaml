@@ -42,3 +42,16 @@ thumbnail_sizes:
 - width: 800
   height: 600
   method: scale
+
+oidc_providers:
+- idp_id: hitobito
+  idp_name: hitobito localhost
+  issuer: "http://rails:3000"
+  skip_verification: true
+  client_id: "rIKsxGlAZVq6v4fD5y8a_GhqmhxKj9DrO2tGeEONnak"
+  client_secret: "81kTciK2f0gmDJ6F2MOJksTj9baaqk-AFuOWf4X_GdI"
+  scopes: ["name"]
+  user_mapping_provider:
+    config:
+      localpart_template: "{{ user.preferred_username }}"
+    display_name_template: "{{ user.name }}"

@@ -1,4 +1,4 @@
-server_name: chat.hitobito.example.com
+server_name: localhost:8008
 report_stats: false
 
 listeners:
